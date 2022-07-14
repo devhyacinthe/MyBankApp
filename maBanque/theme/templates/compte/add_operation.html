@@ -1,0 +1,38 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Operations</title>
+    {% tailwind_css %}
+  </head>
+  <body>
+
+    <div>
+
+        <div class="w-1/3 font-bold text-lg h-1/3 text-center translate-y-8 border-stone-400 translate-x-9">
+            Enregistrer une opération
+        </div>
+
+        <form action={% url 'add-operation' %} method="POST"
+            class="rounded-2xl shadow-lg bg-blue-600 w-1/3 h-1/3 justify-center translate-x-2.5 m-8">
+            
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            <input type="text" placeholder="Numero de compte" required class="h-6 p-4 m-3" name="compte">
+            <p class="p-5 m-4 -translate-y-6"> 
+                <label for="Retrait">Retrait</label>
+                <input type="radio" name="type" id="Retrait" value="Retrait">
+                <label for="Versement">Versement</label>
+                <input type="radio" name="type" id="Versement" value="Versement">    
+            </p>
+            <input type="number" placeholder="Montant" required class="h-6 p-4 m-3" name="montant">
+            <button type="submit"
+                class="rounded-xl text-white bg-blue-400 h-11 hover:bg-slate-500 w-1/2 my-12 text-center justify-center translate-x-32">Enregistrer</button>
+        </form>
+
+    </div>
+  </body>
+</html>

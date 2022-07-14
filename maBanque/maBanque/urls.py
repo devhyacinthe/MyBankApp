@@ -15,9 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from compte.views import index
+from compte.views import index, add_client, add_compte, add_operation,  liste
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', index)
+    path('', index, name="base"),
+    path('add-client/', add_client, name="add-client"),
+    path('add-compte/', add_compte, name="add-compte"),
+    path('add-operation/', add_operation, name="add-operation"),
+    path('liste/', liste, name="liste")
 ]

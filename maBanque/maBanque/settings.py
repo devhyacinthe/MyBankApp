@@ -26,6 +26,8 @@ SECRET_KEY = 'django-insecure-bt8_#h#%viwesh)lt1d1cdtg=skg6qo%mk__ujrrpytim(7wcy
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+APPEND_SLASH=False
+
 ALLOWED_HOSTS = []
 
 
@@ -53,6 +55,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    
 ]
 
 ROOT_URLCONF = 'maBanque.urls'

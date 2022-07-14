@@ -1,19 +1,30 @@
 {% load static tailwind_tags %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 	<head>
-    <title>Django Tailwind</title>
+    
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>Django Tailwind</title>
 		{% tailwind_css %}
 	</head>
 
-	<body class="bg-gray-50 font-serif leading-normal tracking-normal">
-		<div class="container mx-auto">
-			<section class="flex items-center justify-center h-screen">
-				<h1 class="text-5xl text-red-500">Django + Tailwind = ❤️</h1>
-			</section>
-		</div>
+	<body class="bg-blue-500">
+		<nav class="  bg-white md:flex md:items-center md:justify-between">
+			<div>
+				<a href="#" class="text-2xl cursor-pointer">
+					<i class="fa-solid fa-building-columns"></i>Ma Banque</a></li>
+			</div>
+			<ul class="md:flex md:items-center z-[-1] md:z-auto md:static absolute bg-white">
+				<li class="mx-4 my-6 md:my-0"><a href={% url 'add-client' %} class="text-xl hover:text-red-500 duration-500">Ajouter un client</a></li>
+				<li class="mx-4 my-6 md:my-0"><a href={% url 'add-compte' %} class="text-xl hover:text-red-500 duration-500">Ajouter un compte</a></li>
+				<li class="mx-4 my-6 md:my-0"><a href={% url 'add-operation' %} class="text-xl hover:text-red-500 duration-500">Faire une opération</a></li>
+				<li class="mx-4 my-6 md:my-0"><a href={% url 'liste' %} class="text-xl hover:text-red-500 duration-500">Liste</a></li>
+				<li class="mx-4 my-6 md:my-0"><a href="#" class="text-xl hover:text-red-500 duration-500"><i class="fa-solid fa-user"></i>Admin</a></li>
+				<!--private joke --><li class="mx-4 text-center text-xl"><a href="https://pixabay.com/fr/" class="hover:text-red-500">Deconnexion</a></li>
+			</ul>
+		</nav>
+		
 	</body>
 </html>

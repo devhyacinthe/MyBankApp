@@ -1,0 +1,84 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Liste</title>
+    {% tailwind_css %}
+  </head>
+  <body>
+
+    
+    <h1 class="text-center text-bold text-2xl hover:text-red-500"><a href={% url 'base' %}> Retour a la page d'accueil</a></h1>
+   
+    <div class="grid grid-cols-1 md:grid md:grid-cols-3">
+        <div class="shadow-2xl text-center text-bold text-lg  m-11  translate-y-8">
+            <caption class="text-xl text-bold text-slate-400">Liste des clients</caption>
+            <table>
+                <thead class="bg-white text-center text-red-500">
+                    <tr>
+                        <th class="border border-slate-600">ID</th>
+                        <th class="border border-slate-600">Nom</th>
+                        <th class="border border-slate-600">Prenom</th>
+                    </tr>
+                    
+                </thead>
+                <tbody>
+                    {% for client in clients %}
+                        <tr>
+                            <td class="border border-slate-600">{{ client.idClient }}</td>
+                            <td class="border border-slate-600">{{ client.nom }}</td>
+                            <td class="border border-slate-600">{{ client.prenom }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="shadow-2xl text-center text-bold text-lg  m-11  translate-y-8">
+            <caption class="text-xl text-bold text-slate-400">Liste des operations</caption>
+            <table>
+                <thead class="bg-white text-center text-red-500">
+                    <th class="border border-slate-600">Date</th>
+                    <th class="border border-slate-600">Type</th>
+                    <th class="border border-slate-600">Montant</th>
+                    <th class="border border-slate-600">Compte</th>
+                </thead>
+                <tbody>
+                    {% for operation in operations %}
+                        <tr>
+                            <td class="border border-slate-600">{{ operation.date }}</td>
+                            <td class="border border-slate-600">{{ operation.type }}</td>
+                            <td class="border border-slate-600">{{ operation.montant }}</td>
+                            <td class="border border-slate-600">{{ operation.compte }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="shadow-2xl text-center text-bold text-lg  m-11  md:w-1/2 translate-y-8">
+            <caption class="text-xl text-bold text-slate-400">Liste des comptes</caption>
+            <table>
+                <thead  class="bg-white text-center text-red-500">
+                    <th class="border border-slate-600">Numero</th>
+                    <th class="border border-slate-600">Client</th>
+                    <th class="border border-slate-600">Solde</th>
+                </thead>
+                <tbody>
+                    {% for compte in comptes %}
+                        <tr>
+                            <td class="border border-slate-600">{{ compte.numero }}</td>
+                            <td class="border border-slate-600">{{ compte.client }}</td>
+                            <td class="border border-slate-600">{{ compte.solde }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+    
+            </table>
+        </div>
+    </div>
+    
+    
+    <script src="https://kit.fontawesome.com/350d66f187.js" crossorigin="anonymous"></script>
+  </body>
+</html>

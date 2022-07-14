@@ -1,0 +1,33 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Ajouter compte</title>
+    {% tailwind_css %}
+  </head>
+  <body>
+    <div>
+
+        <div class="w-1/3 font-bold text-lg h-1/3 text-center translate-y-8 border-stone-400 translate-x-9">
+            Enregistrer un compte
+        </div>
+
+
+        <form action={% url 'add-compte' %} method="POST"
+            class="rounded-2xl shadow-lg bg-blue-600 w-1/3 h-1/3 justify-center translate-x-2.5 m-8">
+            
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            <input type="text" placeholder="Numero de compte" required class="h-6 p-4 m-3" name="numero">
+            <input type="text" placeholder="Uid Client" required class="h-6 p-4 m-3" name="uidclient">
+            <button type="submit"
+                class="rounded-xl text-white bg-blue-400 h-11 hover:bg-slate-500 w-1/2 my-12 text-center justify-center translate-x-32">Enregistrer</button>
+        </form>
+
+    </div>
+  </body>
+</html>
